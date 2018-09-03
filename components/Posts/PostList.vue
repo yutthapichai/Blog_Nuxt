@@ -1,25 +1,13 @@
 <template>
   <section class="post-list">
       <PostPreview
-      id="1"
+      v-for="post of posts"
+      :key="post.id"
+      :id="post.id"
       :is-admin="isAdmin"
-      thumbnail="https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
-      title="Hello one"
-      previewText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
-      />
-      <PostPreview
-      id="2"
-      :is-admin="isAdmin"
-      thumbnail="https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
-      title="Hello two"
-      previewText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
-      />
-      <PostPreview
-      id="3"
-      :is-admin="isAdmin"
-      thumbnail="https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
-      title="Hello there"
-      previewText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :previewText="post.previewText"
       />
   </section>
 </template>
@@ -33,6 +21,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }

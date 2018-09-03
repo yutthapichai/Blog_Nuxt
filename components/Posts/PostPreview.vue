@@ -14,8 +14,8 @@ export default {
   name: 'PostPreview',
   props: {
     id: {
-      type: String,
-      rewuire: true
+      type: Number,
+      required: true
     },
     isAdmin: {
       type: Boolean,
@@ -23,15 +23,15 @@ export default {
     },
     title: {
       type: String,
-      rewuire: true
+      required: true
     },
     previewText: {
       type: String,
-      rewuire: true
+      required: true
     },
     thumbnail: {
       type: String,
-      rewuire: true
+      required: true
     }
   },
   computed: {

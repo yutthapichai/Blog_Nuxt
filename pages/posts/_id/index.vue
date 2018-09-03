@@ -1,18 +1,37 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the Post</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last update on XX</div>
-        <div class="post-detail">White by name</div>
+        <div class="post-detail">Last update {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">White by {{ loadedPost.author }}</div>
       </div>
-      <p class="post-content">content of the post</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
       <p>Let me khow what think about the post</p>
     </section>
   </div>
 </template>
+<script>
+export default {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPost:{
+          id: 1,
+          title: 'My awesome Post (' + context.route.params.id + ')',
+          previewText: 'Super amazing, thanks for that',
+          author: 'Yut dev until i sleep',
+          updatedDate: new Date(),
+          content: 'aomdsdlkaldj ldjsaljdldsd',
+          thumbnail:"https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
+        }
+     })
+    }, 1000)
+  }
+}
+</script>
 
 <style scoped>
 .single-post-page {
