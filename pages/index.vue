@@ -14,36 +14,10 @@ export default {
   components: {
     PostList
   },
-  data() {
-    return {
-      loadedPosts: []
+  computed: {
+    loadedPosts(){
+      return this.$store.getters.loadedPosts
     }
-  },
-  asyncData(context, callback) {
-      setTimeout(() => {
-        callback(null,{
-          loadedPosts: [
-            {
-              id: 1,
-              title: 'My awesome Post 1',
-              previewText: 'Super amazing, thanks for that',
-              thumbnail:"https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
-            },
-            {
-              id: 2,
-              title: 'My awesome Post 2',
-              previewText: 'Super amazing, thanks for that',
-              thumbnail:"https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
-            },
-            {
-              id: 3,
-              title: 'My awesome Post 3',
-              previewText: 'Super amazing, thanks for that',
-              thumbnail:"https://images.idgesg.net/images/article/2017/05/artificial_intelligence_machine_learning_thinkstock_664735184-100724414-large.jpg"
-            }
-          ]
-        })
-      }, 1500);
   }
 }
 </script>
