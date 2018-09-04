@@ -7,11 +7,15 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'App_Yut',
+    title: "App_Yut",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: 'Web development Blog' }
+      {
+        hid: "description",
+        name: "description",
+        content: "Web development Blog"
+      }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -25,10 +29,10 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: "#33ccff", height: '4px' },
+  loading: { color: "#33ccff", height: "4px" },
   loadingIndicator: {
-    name: 'circle',
-    color: '#fa923f'
+    name: "circle",
+    color: "#fa923f"
   },
   /*
   ** Global CSS
@@ -38,15 +42,16 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    '~plugins/core-components'
-  ],
+  plugins: ["~plugins/core-components.js", "~plugins/date-filter.js"],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [],
-
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL: process.env.BASE_URL || "https://nuxt-blog-a4985.firebaseio.com",
+    credentials: false
+  },
   /*
   ** Build configuration
   */
@@ -57,10 +62,11 @@ module.exports = {
     extend(config, ctx) {}
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-a4985.firebaseio.com'
+    baseUrl: process.env.BASE_URL || "https://nuxt-blog-a4985.firebaseio.com"
   },
   transition: {
-    name: 'fade',
-    mode: 'out-in'
+    // when open new page will fade animation
+    name: "fade",
+    mode: "out-in"
   }
 };
