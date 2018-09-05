@@ -62,11 +62,15 @@ module.exports = {
     extend(config, ctx) {}
   },
   env: {
-    baseUrl: process.env.BASE_URL || "https://nuxt-blog-a4985.firebaseio.com"
+    baseUrl: process.env.BASE_URL || "https://nuxt-blog-a4985.firebaseio.com",
+    fbAPIKey: "AIzaSyCTcwGbndxawDa-yS3F0ykGdjosMvskUO4"
   },
   transition: {
     // when open new page will fade animation
     name: "fade",
     mode: "out-in"
   }
+  //router: {
+  //  middleware: 'log'
+  //}
 };
